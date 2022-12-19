@@ -12,6 +12,17 @@ function App() {
       setIndex(Math.floor(Math.random() * quotes.length));
   }
   
+  const Up = () => {
+    if(index < quotes.length -1){
+      setIndex(index + 1);
+    }
+  }
+  
+  const Down = () => {
+    if(index > 0){
+      setIndex(index - 1);
+    }
+  }
 
   const colors = [
     "#845EC2", "#D65DB1", "#D65DB2", "#FF6F91", "#FF9671", "#FFC75F", "#F9F871",
@@ -65,12 +76,12 @@ function App() {
   // document.body.style = `font-family: ${letters[shuffleLetter]}`;
 
   // titleQuote.style = `background: ${colors[shuffleColor]}`;
-    // const container = document.getElementById("div"); 
+  // const container = document.getElementById("div"); 
   // container.textContent = titleQuote 
-    // titleQuote.textContent = quotes[random].quote
+  // titleQuote.textContent = quotes[random].quote
   // body.titleQuote.style = `background: ${colors[shuffleColor]}`;
   
-    // const authorQuote = document.createElement("h3")
+  // const authorQuote = document.createElement("h3")
   // authorQuote.textContent = quotes[random].author
   // authorQuote.style = `background: ${colors[shuffleColor]}`;
 
@@ -88,7 +99,12 @@ function App() {
       <div className='container' style={{background: "white"}}>
           <h3 className='quote'  style={{color: colors[shuffleColor], fontFamily:letters[shuffleLetter]}} >"{quote}"</h3>
           <h4 className='author' style={{color: colors[shuffleColor], fontFamily:letters[shuffleLetter]}}>"{author}"</h4>
-          <button className='shufflebutton' onClick={changeQuote} style={{background: colors[shuffleColor]}}><i className="fa-solid fa-shuffle"></i></button>
+          <button className='shufflebutton' onClick={changeQuote} style={{background: colors[shuffleColor]}}><i className="fa-solid fa-shuffle"></i> </button>
+          
+          <div className='buttoncontainer'>
+          <button onClick={Down} className="downButton" style={{background: colors[shuffleColor], color:"black"}}> <i className="fa-solid fa-arrow-down"></i> <br />Prev-One </button>
+          <button onClick={Up} className="upButton" style={{background: colors[shuffleColor], color:"black"}}> <i className="fa-solid fa-arrow-up"></i> <br />Next-One </button>
+          </div>
       </div>
     </div>
   )
